@@ -2114,7 +2114,7 @@ void RendererSceneRenderRD::_setup_reflections(RenderDataRD *p_render_data, cons
 
 		Vector3 extents = light_storage->reflection_probe_get_extents(base_probe);
 
-		rpi->cull_mask = light_storage->reflection_probe_get_cull_mask(base_probe);
+		rpi->cull_mask = -1;
 
 		reflection_ubo.box_extents[0] = extents.x;
 		reflection_ubo.box_extents[1] = extents.y;
@@ -2126,7 +2126,7 @@ void RendererSceneRenderRD::_setup_reflections(RenderDataRD *p_render_data, cons
 		reflection_ubo.box_offset[0] = origin_offset.x;
 		reflection_ubo.box_offset[1] = origin_offset.y;
 		reflection_ubo.box_offset[2] = origin_offset.z;
-		reflection_ubo.mask = light_storage->reflection_probe_get_cull_mask(base_probe);
+		reflection_ubo.mask = -1;
 
 		reflection_ubo.intensity = light_storage->reflection_probe_get_intensity(base_probe);
 		reflection_ubo.ambient_mode = light_storage->reflection_probe_get_ambient_mode(base_probe);
